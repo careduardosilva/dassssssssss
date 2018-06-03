@@ -1,0 +1,23 @@
+string = input().split()
+L = int(string[0])
+U = int(string[1])
+primos = []
+diferenca = []
+numbers_in_range = [i for i in range(L,U+1)]
+contador = 0
+maior = 1
+for i in numbers_in_range:
+    for k in range(L,U+1):
+        if(i % k == 0):
+            contador += 1
+    if(contador == 1):
+        primos.append(i)
+        contador = 0
+    contador = 0
+for i in range(0,len(primos)-1):
+    diference = primos[i+1] - primos[i]
+    diferenca.append(diference)
+for i in diferenca:
+    if(maior < diferenca.count(i)):
+        maior = diferenca.count(i)
+print(maior)
